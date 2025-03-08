@@ -32,7 +32,10 @@ return {
                     "gopls",
                     "eslint",
                     "tailwindcss",
-                    "marksman"
+                    "marksman",
+                    "html",
+                    "templ",
+                    "htmx"
                 },
                 handlers = {
                     function(server_name) -- default handler (optional)
