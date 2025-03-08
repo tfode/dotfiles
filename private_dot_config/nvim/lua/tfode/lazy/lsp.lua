@@ -12,6 +12,12 @@ return {
             "L3MON4D3/LuaSnip",
             "saadparwaiz1/cmp_luasnip",
             "j-hui/fidget.nvim",
+            {
+                "rafamadriz/friendly-snippets",
+                config = function()
+                    require("luasnip.loaders.from_vscode").lazy_load()
+                end,
+            },
         },
 
         config = function()
@@ -48,7 +54,7 @@ return {
                         local lspconfig = require("lspconfig")
                         lspconfig.lua_ls.setup {
                             capabilities = capabilities,
-                                      settings = {
+                            settings = {
                                 Lua = {
                                     runtime = { version = "Lua 5.1" },
                                     diagnostics = {
@@ -98,21 +104,6 @@ return {
                     prefix = "",
                 },
             })
-            -- vim.api.nvim_create_autocmd("CursorHold", {
-            --     callback = function()
-            --         vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
-            --     end,
-            -- })
         end
     },
-    -- {
-    --     "NvChad/nvim-colorizer.lua",
-    --     config = function()
-    --         require("colorizer").setup({
-    --             user_default_options = {
-    --                 tailwind = true,
-    --             },
-    --         })
-    --     end
-    -- }
 }
