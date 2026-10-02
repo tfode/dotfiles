@@ -14,8 +14,14 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     spec = "tfode.lazy",
     change_detection = { notify = false },
-    -- rocks = {
-    --     enabled = false,
-    --     -- hererocks = false
-    -- }
+    performance = {
+        rtp = {
+            -- Debian/Ubuntu ship bundled treesitter parsers (vimdoc, lua, ...) in the
+            -- multiarch lib dir, which lazy's rtp reset drops.
+            paths = { "/usr/lib/x86_64-linux-gnu/nvim" },
+        },
+    },
+    rocks = {
+        enabled = false,
+    },
 })
